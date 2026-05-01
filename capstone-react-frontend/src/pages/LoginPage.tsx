@@ -1,23 +1,27 @@
 import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import './AuthPage.css'
 
+interface UserForLogin {
+  username: string
+  password: string
+}
+
 function LoginPage() {
   const navigate = useNavigate()
   const { login } = useAuth()
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
   const [message, setMessage] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const { register, handleSubmit } = useForm<UserForLogin>()
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault()
+  async function onSubmit(data: UserForLogin) {
     setMessage(null)
     setError(null)
 
     try {
-      await login(username, password)
+      await login(data.username, data.password)
       //TODO this is finishing really quick and just redirects. Add a clearer popup so its clear
       setMessage('Login successful.')
       navigate('/')
@@ -29,18 +33,16 @@ function LoginPage() {
   return (
     <section className="auth-page">
       <h1>Login</h1>
-      <form className="auth-form" onSubmit={handleSubmit}>
+      <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
         <label className="auth-field">
           <span>Username</span>
-          <input value={username} onChange={(event) => setUsername(event.target.value)} required />
+          <input {...register('username', { required: true })} />
         </label>
         <label className="auth-field">
           <span>Password</span>
           <input
             type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            required
+            {...register('password', { required: true })}
           />
         </label>
         {message && <p className="auth-message">{message}</p>}
