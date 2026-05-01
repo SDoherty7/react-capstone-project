@@ -1,0 +1,38 @@
+.orders-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.orders-card {
+  width: 100%;
+  margin: 0 auto 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.orders-card-body {
+  padding: 1rem 1.25rem;
+  text-align: left;
+}
+
+.orders-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.orders-card-body p {
+  margin: 0.35rem 0;
+}
+
+.order-status {
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+}

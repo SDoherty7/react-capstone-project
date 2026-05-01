@@ -1,0 +1,147 @@
+.page-shell {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.page-shell h1 {
+  margin-bottom: 1rem;
+}
+
+.cart-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.cart-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--surface-soft);
+}
+
+.cart-item-meta {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.checkout-notes-field {
+  margin-top: 0.4rem;
+}
+
+.cart-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cart-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.cart-empty {
+  color: var(--text);
+}
+
+.ghost-button {
+  border: 1px solid var(--accent-border);
+  background: transparent;
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+}
+
+.checkout-form {
+  display: grid;
+  gap: 1rem;
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.checkout-form h2 {
+  margin: 0;
+}
+
+.checkout-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.checkout-field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.checkout-field input {
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  padding: 0.7rem 0.8rem;
+  font: inherit;
+}
+
+.checkout-field textarea {
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  padding: 0.7rem 0.8rem;
+  font: inherit;
+  resize: vertical;
+}
+
+.checkout-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.checkout-totals {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.primary-button {
+  border: 1px solid var(--highlight-strong);
+  background: var(--highlight);
+  color: var(--accent-strong);
+  border-radius: 4px;
+  padding: 0.7rem 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary-button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.checkout-error {
+  color: #b42318;
+}
+
+@media (max-width: 720px) {
+  .checkout-row {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
